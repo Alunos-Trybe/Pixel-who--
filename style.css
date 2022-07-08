@@ -1,7 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;0,800;0,900;1,400&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400&family=VT323&display=swap');
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Importar as fontes "Poppins, Roboto e VT3223" */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;0,800;0,900;1,400&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400&family=VT323&display=swap");
+/* Definiçoes globais de css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+/*Incio da Estilização da barra de navegação ecrã inteiro */
+.container-nav{
+    background-color: black;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.left-nav{
+    margin-left: 2rem;
+}
+
+.right-nav{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+}
+.right-nav li{
+    display: inline-block;
+    margin: 1.5rem;  
+}
+
+.right-nav a{
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.right-nav a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+
+.right-nav a:hover{
+    color: #FFFF2E;
+    font-size: 2.3rem;
+    transition: 0.5s all;
+    text-shadow: 0px 0px 20px #FFFF2E;
+}
+/*Fim da Estilização da barra de navegação ecrã inteiro */
