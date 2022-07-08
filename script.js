@@ -62,3 +62,13 @@ const capitaoAmerica = {
     Heroi: "Anti-Heroi",
     Filmes: "Sim",
   };
+
+  const capitanMarvel = {
+    Nome: "Capitan Marvel",
+    Sexo: "Feminino",
+    Raça: "Humano",
+    Equipe: ["Avangers", "Guardiões da Galáxia"],
+    Classe: "Cósmico",
+    Heroi: "Heroi",
+    Filmes: "Sim",
+  };
