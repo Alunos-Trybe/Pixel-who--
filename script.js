@@ -25,3 +25,50 @@ const thor = {
   Heroi: "Heroi",
   Filmes: "Sim",
 };
+const capitaoAmerica = {
+    Nome: "Capitão America",
+    Sexo: "Masculino",
+    Raça: "Humano",
+    Equipe: ["Avangers", "Iluminati"],
+    Classe: "Lutador",
+    Heroi: "Heroi",
+    Filmes: "Sim",
+  };
+  const hulk = {
+    Nome: "Hulk",
+    Sexo: "Masculino",
+    Raça: "Humano",
+    Equipe: "Avangers",
+    Classe: "Radioativo",
+    Heroi: "Heroi",
+    Filmes: "Sim",
+  };
+  const loki = {
+    Nome: "Thor",
+    Sexo: "Masculino",
+    Raça: "Frost-Gigant",
+    Equipe: "",
+    Classe: "Deus",
+    Heroi: "Vilão",
+    Filmes: "Sim",
+  };
+
+  const venom = {
+    Nome: "Venom",
+    Sexo: "Masculino",
+    Raça: "Klyntar",
+    Equipe: "",
+    Classe: "Lutador",
+    Heroi: "Anti-Heroi",
+    Filmes: "Sim",
+  };
+
+  const capitanMarvel = {
+    Nome: "Capitan Marvel",
+    Sexo: "Feminino",
+    Raça: "Humano",
+    Equipe: ["Avangers", "Guardiões da Galáxia"],
+    Classe: "Cósmico",
+    Heroi: "Heroi",
+    Filmes: "Sim",
+  };
