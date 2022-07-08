@@ -49,3 +49,29 @@ a:active {
   text-shadow: 0px 0px 20px #ffff2e;
 }
 /*Fim da Estilização da barra de navegação ecrã inteiro */
+
+
+.personagens-titulo{
+    font-size: 5rem;
+    text-align: center;
+    margin: 3rem 0 3rem 0;
+    color: #ffff2e;
+}
+.container-personagens{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    gap: 2rem;
+}
+.card-personagem{
+    text-align: center;
+}
+.title-card{
+    font-size: 1.8rem;
+    font-family: 'Poppins',sans-serif;
+    text-align: center;
+}
+.image-card{
+    width: 150px;
+}
