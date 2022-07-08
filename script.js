@@ -25,3 +25,21 @@ const thor = {
   Heroi: "Heroi",
   Filmes: "Sim",
 };
+const capitaoAmerica = {
+    Nome: "Capitão America",
+    Sexo: "Masculino",
+    Raça: "Humano",
+    Equipe: ["Avangers", "Iluminati"],
+    Classe: "Lutador",
+    Heroi: "Heroi",
+    Filmes: "Sim",
+  };
+  const hulk = {
+    Nome: "Hulk",
+    Sexo: "Masculino",
+    Raça: "Humano",
+    Equipe: "Avangers",
+    Classe: "Radioativo",
+    Heroi: "Heroi",
+    Filmes: "Sim",
+  };
