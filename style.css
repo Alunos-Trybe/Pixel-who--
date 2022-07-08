@@ -8,42 +8,44 @@
 }
 
 /*Incio da Estilização da barra de navegação ecrã inteiro */
-.container-nav{
-    background-color: black;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+.container-nav {
+  background-color: black;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
-.left-nav{
-    margin-left: 2rem;
-}
-
-.right-nav{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    list-style: none;
-}
-.right-nav li{
-    display: inline-block;
-    margin: 1.5rem;  
+.left-nav {
+  margin-left: 2rem;
 }
 
-.right-nav a{
-    color: #fff;
-    font-size: 2rem;
-    font-weight: 500;
+.right-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+}
+.right-nav li {
+  display: inline-block;
+  margin: 1.5rem;
 }
 
-.right-nav a:hover, a:visited, a:link, a:active
-{
-    text-decoration: none;
+.right-nav a {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 500;
 }
 
-.right-nav a:hover{
-    color: #FFFF2E;
-    font-size: 2.3rem;
-    transition: 0.5s all;
-    text-shadow: 0px 0px 20px #FFFF2E;
+.right-nav a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+}
+
+.right-nav a:hover {
+  color: #ffff2e;
+  font-size: 2.3rem;
+  transition: 0.5s all;
+  text-shadow: 0px 0px 20px #ffff2e;
 }
 /*Fim da Estilização da barra de navegação ecrã inteiro */
