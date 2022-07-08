@@ -43,3 +43,22 @@ const capitaoAmerica = {
     Heroi: "Heroi",
     Filmes: "Sim",
   };
+  const loki = {
+    Nome: "Thor",
+    Sexo: "Masculino",
+    Raça: "Frost-Gigant",
+    Equipe: "",
+    Classe: "Deus",
+    Heroi: "Vilão",
+    Filmes: "Sim",
+  };
+
+  const venom = {
+    Nome: "Venom",
+    Sexo: "Masculino",
+    Raça: "Klyntar",
+    Equipe: "",
+    Classe: "Lutador",
+    Heroi: "Anti-Heroi",
+    Filmes: "Sim",
+  };
