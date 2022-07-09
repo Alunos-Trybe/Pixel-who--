@@ -6,6 +6,8 @@ const drStrange = {
   Classe: "Mago",
   Heroi: "Heroi",
   Filmes: "Sim",
+  HQ : "Marvel",
+  img : "./img/dr-strange-card.png"
 };
 const spiderMan = {
   Nome: "Spider-Man",
@@ -15,6 +17,8 @@ const spiderMan = {
   Classe: "Lutador",
   Heroi: "Heroi",
   Filmes: "Sim",
+  HQ : "Marvel",
+  img : "img/spider-man-card.png"
 };
 const thor = {
   Nome: "Thor",
@@ -24,6 +28,8 @@ const thor = {
   Classe: "Deus",
   Heroi: "Heroi",
   Filmes: "Sim",
+  HQ : "Marvel",
+  img : "img/Thor-card.png"
 };
 const capitaoAmerica = {
     Nome: "Capitão America",
@@ -33,6 +39,8 @@ const capitaoAmerica = {
     Classe: "Lutador",
     Heroi: "Heroi",
     Filmes: "Sim",
+    HQ : "Marvel",
+    img : "img/capitao-america-card.png"
   };
   const hulk = {
     Nome: "Hulk",
@@ -42,6 +50,8 @@ const capitaoAmerica = {
     Classe: "Radioativo",
     Heroi: "Heroi",
     Filmes: "Sim",
+    HQ : "Marvel",
+    img : "img/Hulk-card.png"
   };
   const loki = {
     Nome: "Thor",
@@ -51,6 +61,8 @@ const capitaoAmerica = {
     Classe: "Deus",
     Heroi: "Vilão",
     Filmes: "Sim",
+    HQ : "Marvel",
+    img : "img/Loki-card.jpg"
   };
 
   const venom = {
@@ -61,6 +73,8 @@ const capitaoAmerica = {
     Classe: "Lutador",
     Heroi: "Anti-Heroi",
     Filmes: "Sim",
+    HQ : "Marvel",
+    img : "img/Venom-card.png"
   };
 
   const capitanMarvel = {
@@ -71,4 +85,89 @@ const capitaoAmerica = {
     Classe: "Cósmico",
     Heroi: "Heroi",
     Filmes: "Sim",
+    HQ : "Marvel",
+    img : "img/Capitan-Marvel-card.png"
   };
+  const thing = {
+    Nome: "Coisa",
+    Sexo: "Feminino",
+    Raça: "Humano",
+    Equipe: "Quarteto Fantástico",
+    Classe: "Cósmico",
+    Heroi: "Heroi",
+    Filmes: "Sim",
+    HQ : "Marvel",
+    img : "img/Thing-card.png"
+  }
+  const ironMan = {
+    Nome: "Iron Man",
+    Sexo: "Masculino",
+    Raça: "Humano",
+    Equipe: ["Avangers", "Iluminati"],
+    Classe: "Engenheiro",
+    Heroi: "Heroi",
+    Filmes: "Sim",
+    HQ : "Marvel",
+    img : "img/Iron-man-card.png"
+  }
+  const thanos = {
+    Nome: "Thanos",
+    Sexo: "Masculino",
+    Raça: "Eternos",
+    Equipe: "Ordem Negra",
+    Classe: "Cósmico",
+    Heroi: "Vilão",
+    Filmes: "Sim",
+    HQ : "Marvel",
+    img : "img/Thanoscard.png"
+  }
+
+  const electro = {
+    Nome: "Electro",
+    Sexo: "Masculino",
+    Raça: "Humano",
+    Equipe: "Sexteto Sinistro",
+    Classe: "Engenheiro",
+    Heroi: "Vilão",
+    Filmes: "Sim",
+    HQ : "Marvel",
+   img : "./img/Eletro-card.png"
+  }
+
+const personagens = [drStrange,spiderMan,capitanMarvel,capitaoAmerica,hulk,thor,loki,venom,thing,ironMan,thanos,electro];
+
+
+const contentorCartas = document.querySelector(".container-personagens");
+
+console.log(contentorCartas)
+function criaCartas () {
+for (let index = 0; index < personagens.length; index++) {
+
+    let flipCard = document.createElement('div');
+    flipCard.className= "flip-card";
+    contentorCartas.appendChild(flipCard);
+    let flipCardInner = document.createElement('div');
+    flipCardInner.className= "flip-card-inner";
+    flipCard.appendChild(flipCardInner);
+    let flipCardBack = document.createElement('div');
+    let flipCardFront = document.createElement('div');
+    flipCardFront.className= "flip-card-front";
+    flipCardBack.className = "flip-card-back";
+    flipCardInner.appendChild(flipCardBack);
+    flipCardInner.appendChild(flipCardFront);
+    let titleCard = document.createElement("h3");
+    titleCard.className ="title-card"
+    titleCard.innerText = personagens[index].Nome;
+    let pCard = document.createElement("p");
+    pCard.className = "txt-card";
+    pCard.setAttribute('style', 'white-space: pre;');
+    pCard.textContent = "Sexo :" + personagens[index].Sexo + " \r\n  Raça :" + personagens[index].Raça + " \r\n  Equipe :" + personagens[index].Equipe + " \r\n  Classe :" + personagens[index].Classe + " \r\n  Heroi :" + personagens[index].Heroi + " \r\n  Filmes :" + personagens[index].Filmes + " \r\n  HQ :" + personagens[index].HQ
+    flipCardBack.appendChild(titleCard);
+    flipCardBack.appendChild(pCard);
+    let imgCard = document.createElement("img");
+    imgCard.src = personagens[index].img;
+    flipCardFront.appendChild(imgCard);
+
+}
+}
+criaCartas(); 
