@@ -5,6 +5,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+/* Remover a barra de scroll */
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+body{
+  overflow-y: scroll;
 }
 
 /*Incio da Estilização da barra de navegação ecrã inteiro */
@@ -50,7 +58,7 @@ a:active {
 }
 /*Fim da Estilização da barra de navegação ecrã inteiro */
 
-
+/* Inicio da Estilização das cartas personagens */
 .personagens-titulo{
     font-size: 5rem;
     text-align: center;
@@ -85,8 +93,8 @@ a:active {
 
 .flip-card {
   background-color: transparent;
-  width: 200px;
-  height: 280px;
+  width: 250px;
+  height: 346px;
 }
 
 .flip-card-inner {
@@ -100,7 +108,7 @@ a:active {
 }
 
 .flip-card-front img {
-  width: 200px;
+  width: 250px;
   border: 5px solid black;
   border-radius: 12px;
 }
@@ -130,3 +138,16 @@ a:active {
   border: 5px solid black;
   border-radius: 12px;
 }
+
+.title-card{
+  font-size: 2.7rem;
+  color: #ffff2e;
+  font-weight: 700;
+}
+
+.txt-card{
+  font-size: 1.2rem;
+  color: black;
+  font-weight: 600;
+}
+/* Fim da Estilização das cartas personagens */
