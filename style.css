@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
 
 /* Remover a barra de scroll */
 }
@@ -129,6 +130,7 @@ a:active {
 .flip-card-front {
   background-color: #bbb;
   color: black;
+  border-radius: 12px;
 }
 
 .flip-card-back {

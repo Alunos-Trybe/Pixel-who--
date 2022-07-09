@@ -4,12 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Importaçao do bootstrap css -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-      crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./style.css" />
     <title>Pixel Who ?</title>
@@ -41,16 +35,26 @@
     <!-- Fim da barra de navgação -->
   </header>
   <body>
-    <h1>main</h1>
+    <main>
+      <h1>Personagens</h1>
+      <!-- Container onde são adicionados as Personagens de forma dinamica -->
+      <div class="container-personagens"></div>
+      <section class="perguntas">
+        <div class="container-perguntas">
+          <label for="cars">Escolha uma pergunta :</label>
+          <select name="pergunta-menu" id="pergunta-menu">
+            <option value="masculino" id="p1">O seu personagem é masculino ?</option>
+            <option value="feminino" id="p2">O seu personagem é femenino ?</option>
+            <option value="humano" id="p3">O seu personagem é Humano ?</option>
+            <option value="asgardian" id="p4">O seu personagem é Asgardian ?</option>
 
+          </select>
+          <br /><br />
+          <input type="submit" value="Submit" id="submit-p"/>
+        </div>
+      </section>
+    </main>
 
-
-    <!-- Importaçao do bootstrap js -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-      crossorigin="anonymous"
-    ></script>
     <script src="./script.js"></script>
   </body>
 </html>
