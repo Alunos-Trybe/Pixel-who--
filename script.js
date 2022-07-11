@@ -78,6 +78,18 @@ const venom = {
   img: "img/Venom-card.png",
 };
 
+const scream = {
+  Nome: "Venom",
+  Sexo: "Feminino",
+  Raça: "Klyntar",
+  Equipe: "",
+  Classe: "Lutador",
+  Heroi: "Vilão",
+  Filmes: "Sim",
+  HQ: "Marvel",
+  img: "img/Scream-card.png",
+};
+
 const capitanMarvel = {
   Nome: "Capitan Marvel",
   Sexo: "Feminino",
@@ -149,6 +161,7 @@ const personagens = [
   ironMan,
   thanos,
   electro,
+  scream,
 ];
 
 const contentorCartas = document.querySelector(".container-personagens");
@@ -223,14 +236,15 @@ function masculino() {
 }
 function Feminino() {
   for (let index = 0; index < personagens.length; index++) {
-    console.log(personagens[index].Sexo)
+    console.log(personagens.length)
+    console.log(index)
     if (personagens[index].Sexo !== "Feminino") {
       personagens.splice(index, 1);
     }
   }
-  reset();
-  criaCartas();
 }
+reset();
+criaCartas();
 }
 
 
