@@ -96,6 +96,7 @@ a:active {
   background-color: transparent;
   width: 250px;
   height: 346px;
+  cursor: pointer;
 }
 
 .flip-card-inner {
@@ -156,6 +157,11 @@ a:active {
 }
 /* Fim da Estilização das cartas personagens */
 
+main{
+  height: 100vh;
+}
+
+
  main h1{
   font-size: 5rem;
   text-align: center;
@@ -186,5 +192,11 @@ select{
 
  button, input{
   width: 10%;
+  height: 50%; 
   text-align: center;
+  border-radius: 12px;
+  font-size: 1.5rem;
+  margin-top: 60px;
+  box-shadow: 0px 12px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
  }
