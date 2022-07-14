@@ -303,5 +303,6 @@ criaCartas(eleminar);
   //   }
   //   console.log(personagens)
   // }
+  
 
 
