@@ -57,6 +57,53 @@ a:active {
   transition: 0.5s all;
   text-shadow: 0px 0px 20px #ffff2e;
 }
+
+@media only screen and (max-width: 1245px) {
+  .right-nav a, .right-nav a:hover {
+    font-size: 1.5rem;
+  } 
+}
+
+
+@media only screen and (max-width: 1070px) {
+  .right-nav a, .right-nav a:hover {
+    font-size: 1.0rem;
+  }
+}
+
+@media only screen and (max-width: 1070px) {
+
+  .container-nav{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    flex-basis: 1 ;
+  }
+  .left-nav {
+    text-align: center;
+    border: 2px solid yellow;
+    width: 100%;
+    margin: 0;
+  }
+
+  .right-nav a:hover{
+    font-size: 2rem;
+  }
+  .right-nav{
+    align-items: center;
+    justify-content: center;
+    flex-grow: 5;
+  }
+  .right-nav ul{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .right-nav a{
+    font-size: 2rem;  
+  }
+  
+}
 /*Fim da Estilização da barra de navegação ecrã inteiro */
 
 /* Inicio da Estilização das cartas personagens */
@@ -70,8 +117,9 @@ a:active {
     width: 80%;
     display: flex;
     flex-wrap: wrap;
-    margin: 0 auto;
     gap: 1.8rem;
+    margin: 0px auto;
+    justify-content: center;
 }
 .card-personagem{
     text-align: center;
@@ -135,6 +183,8 @@ a:active {
 }
 
 .flip-card-back {
+  display: flex;
+  flex-direction: column;
   background-color:black;
   background-position: center;
   background-size: contain;
@@ -142,18 +192,24 @@ a:active {
   transform: rotateY(180deg);
   border: 5px solid black;
   border-radius: 12px;
+  justify-content: start;
 }
 
 .title-card{
-  font-size: 2.7rem;
+  font-size: 2rem;
   color: #ffff2e;
   font-weight: 700;
 }
 
 .txt-card{
-  font-size: 1.2rem;
-  color: wheat;
+  inline-size: 100px;
+  overflow-wrap: break-word;
+  line-height: 2.5rem;
+  font-size: 1rem;
+  color: white;
   font-weight: 600;
+  width: 250px;
+  
 }
 /* Fim da Estilização das cartas personagens */
 
