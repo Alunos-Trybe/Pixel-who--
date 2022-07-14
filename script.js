@@ -78,6 +78,18 @@ const venom = {
   img: "img/Venom-card.png",
 };
 
+const scream = {
+  Nome: "Scream",
+  Sexo: "Feminino",
+  Raça: "Klyntar",
+  Equipe: "",
+  Classe: "Lutador",
+  Heroi: "Vilão",
+  Filmes: "Sim",
+  HQ: "Marvel",
+  img: "img/Scream-card.png",
+};
+
 const capitanMarvel = {
   Nome: "Capitan Marvel",
   Sexo: "Feminino",
@@ -149,6 +161,7 @@ const personagens = [
   ironMan,
   thanos,
   electro,
+  scream,
 ];
 
 const contentorCartas = document.querySelector(".container-personagens");
@@ -158,11 +171,14 @@ const pFeminino = document.getElementById("p2");
 const pHumano = document.getElementById("p3");
 const pAsgardian = document.getElementById("p4");
 const pSubmit = document.getElementById("submit-p");
+const btnRest = document.getElementById("reset");
 
 pSubmit.addEventListener("click", pergunta);
+btnRest.addEventListener("click",resetado);
 
-function criaCartas() {
+function criaCartas(personagens) {
   for (let index = 0; index < personagens.length; index++) {
+    if(personagens[index].display !== "None"){
     let flipCard = document.createElement("div");
     flipCard.className = "flip-card";
     contentorCartas.appendChild(flipCard);
@@ -203,40 +219,89 @@ function criaCartas() {
     flipCardFront.appendChild(imgCard);
   }
 }
-criaCartas();
-
-function pergunta() {
-  if (perguntaMenu.value === "masculino") {
-    masculino();
-  }else if (perguntaMenu.value === "feminino") {
-    Feminino();
 }
-
-function masculino() {
-  for (let index = 0; index < personagens.length; index++) {
-    if (personagens[index].Sexo !== "Masculino") {
-      personagens.splice(index, 1);
-    }
-  }
-  reset();
-  criaCartas();
-}
-function Feminino() {
-  for (let index = 0; index < personagens.length; index++) {
-    console.log(personagens[index].Sexo)
-    if (personagens[index].Sexo !== "Feminino") {
-      personagens.splice(index, 1);
-    }
-  }
-  reset();
-  criaCartas();
-}
-}
-
-
+criaCartas(personagens);
 
 function reset() {
   while (contentorCartas.firstChild) {
     contentorCartas.removeChild(contentorCartas.firstChild);
   }
 }
+function resetado() {
+  reset();
+  criaCartas(personagens);
+}
+
+function pergunta() {
+  if (perguntaMenu.value === "sexo") {
+    Sexo();
+  }else if (perguntaMenu.value === "raça") {
+    Raça();
+}
+}
+
+function escolhaPc () {
+  const cartas = document.querySelectorAll(".flip-card");
+  let x = Math.floor(Math.random()*(cartas.length-1)+1);
+  window.alvo = cartas[x]
+}
+escolhaPc();
+
+function escolhaJogador() {
+  const cartas = document.querySelectorAll(".flip-card");
+  for(let i=0; i<cartas.length; i++){
+    cartas[i].addEventListener('click',comparador);
+  }
+}
+escolhaJogador();
+function comparador (){
+  if(this === window.alvo){
+    alert("Acertou")
+  }
+  else{
+    alert("Errou")
+  }
+}
+
+function Sexo() {
+  eleminar =[]
+  x = window.alvo.firstChild.firstChild.lastChild.innerText;
+  if(x.includes("Masculino")){
+    for(i in personagens){
+    if(personagens[i].Sexo === "Masculino"){
+      eleminar.push(personagens[i])
+    }
+  }
+}else{
+  for(i in personagens){
+    if(personagens[i].Sexo === "Feminino"){
+      eleminar.push(personagens[i])
+    }
+  }
+
+}
+reset();
+criaCartas(eleminar);
+}
+  // console.log(typeof(x))
+  // console.log(x)
+  // if(x.includes("Sexo")){
+  //   for (i of personagens){
+  //     if(i.Sexo !== "Masculino"){
+  //       console.log(i.Sexo,"AQUI")
+  //       eleminar.push(i)
+  //     } 
+  //     }
+  //   }
+  //   console.log(eleminar)
+  //   for (k of personagens){
+  //     for (j of eleminar){
+  //       if(k===j){
+          
+  //       }
+  //     }
+  //   }
+  //   console.log(personagens)
+  // }
+
+
