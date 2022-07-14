@@ -176,7 +176,7 @@ const btnRest = document.getElementById("reset");
 pSubmit.addEventListener("click", pergunta);
 btnRest.addEventListener("click",resetado);
 
-function criaCartas() {
+function criaCartas(personagens) {
   for (let index = 0; index < personagens.length; index++) {
     if(personagens[index].display !== "None"){
     let flipCard = document.createElement("div");
@@ -220,7 +220,7 @@ function criaCartas() {
   }
 }
 }
-criaCartas();
+criaCartas(personagens);
 
 function reset() {
   while (contentorCartas.firstChild) {
@@ -229,7 +229,7 @@ function reset() {
 }
 function resetado() {
   reset();
-  criaCartas();
+  criaCartas(personagens);
 }
 
 function pergunta() {
@@ -266,22 +266,42 @@ function comparador (){
 function Sexo() {
   eleminar =[]
   x = window.alvo.firstChild.firstChild.lastChild.innerText;
-  if(x.includes("Sexo")){
-    for (i of personagens){
-      if(i.Sexo !== "Masculino"){
-        eleminar.push(i)
-      } 
-      }
+  if(x.includes("Masculino")){
+    for(i in personagens){
+    if(personagens[i].Sexo === "Masculino"){
+      eleminar.push(personagens[i])
     }
-    console.log(eleminar)
-    for (k of personagens){
-      for (j of eleminar){
-        if(k===j){
-          
-        }
-      }
-    }
-    console.log(personagens)
   }
+}else{
+  for(i in personagens){
+    if(personagens[i].Sexo === "Feminino"){
+      eleminar.push(personagens[i])
+    }
+  }
+
+}
+reset();
+criaCartas(eleminar);
+}
+  // console.log(typeof(x))
+  // console.log(x)
+  // if(x.includes("Sexo")){
+  //   for (i of personagens){
+  //     if(i.Sexo !== "Masculino"){
+  //       console.log(i.Sexo,"AQUI")
+  //       eleminar.push(i)
+  //     } 
+  //     }
+  //   }
+  //   console.log(eleminar)
+  //   for (k of personagens){
+  //     for (j of eleminar){
+  //       if(k===j){
+          
+  //       }
+  //     }
+  //   }
+  //   console.log(personagens)
+  // }
 
 
