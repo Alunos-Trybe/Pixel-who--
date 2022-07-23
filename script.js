@@ -57,7 +57,7 @@ const hulk = {
 const loki = {
   Nome: "Loki",
   Sexo: "Masculino",
-  Raça: "Frost-Gigant",
+  Raça: "Asgardian",
   Equipe: "",
   Classe: "Deus",
   Heroi: "Vilão",
@@ -105,7 +105,7 @@ const thing = {
   Nome: "Coisa",
   Sexo: "Masculino",
   Raça: "Humano",
-  Equipe: "Quarteto Fantástico",
+  Equipe: "",
   Classe: "Cósmico",
   Heroi: "Heroi",
   Filmes: "Sim",
@@ -127,7 +127,7 @@ const thanos = {
   Nome: "Thanos",
   Sexo: "Masculino",
   Raça: "Eternos",
-  Equipe: "Ordem Negra",
+  Equipe: "",
   Classe: "Cósmico",
   Heroi: "Vilão",
   Filmes: "Sim",
@@ -163,7 +163,9 @@ const personagens = [
   electro,
   scream,
 ];
-
+window.resultado = personagens;
+window.score = personagens.length;
+const Original = personagens;
 const contentorCartas = document.querySelector(".container-personagens");
 const perguntaMenu = document.getElementById("pergunta-menu");
 const pMasculino = document.getElementById("p1");
@@ -172,136 +174,125 @@ const pHumano = document.getElementById("p3");
 const pAsgardian = document.getElementById("p4");
 const pSubmit = document.getElementById("submit-p");
 const btnRest = document.getElementById("reset");
+let modal = document.getElementById("popup");
+let scoreUpdate = document.querySelector('.score-value');
+const vida1 = document.getElementById('vida1');
+const vida2 = document.getElementById('vida2')
+const vida3 = document.getElementById('vida3')
+
+
 
 pSubmit.addEventListener("click", pergunta);
-btnRest.addEventListener("click",resetado);
+btnRest.addEventListener("click", resetS);
 
 function criaCartas(personagens) {
   for (let index = 0; index < personagens.length; index++) {
-    if(personagens[index].display !== "None"){
-    let flipCard = document.createElement("div");
-    flipCard.className = "flip-card";
-    contentorCartas.appendChild(flipCard);
-    let flipCardInner = document.createElement("div");
-    flipCardInner.className = "flip-card-inner";
-    flipCard.appendChild(flipCardInner);
-    let flipCardBack = document.createElement("div");
-    let flipCardFront = document.createElement("div");
-    flipCardFront.className = "flip-card-front";
-    flipCardBack.className = "flip-card-back";
-    flipCardInner.appendChild(flipCardBack);
-    flipCardInner.appendChild(flipCardFront);
-    let titleCard = document.createElement("h3");
-    titleCard.className = "title-card";
-    titleCard.innerText = personagens[index].Nome;
-    let pCard = document.createElement("p");
-    pCard.className = "txt-card";
-    pCard.setAttribute("style", "white-space: pre;");
-    pCard.textContent =
-      "Sexo :" +
-      personagens[index].Sexo +
-      " \r\n  Raça :" +
-      personagens[index].Raça +
-      " \r\n  Equipe :" +
-      personagens[index].Equipe +
-      " \r\n  Classe :" +
-      personagens[index].Classe +
-      " \r\n  Heroi :" +
-      personagens[index].Heroi +
-      " \r\n  Filmes :" +
-      personagens[index].Filmes +
-      " \r\n  HQ :" +
-      personagens[index].HQ;
-    flipCardBack.appendChild(titleCard);
-    flipCardBack.appendChild(pCard);
-    let imgCard = document.createElement("img");
-    imgCard.src = personagens[index].img;
-    flipCardFront.appendChild(imgCard);
+    if (personagens[index].display !== "None") {
+      let flipCard = document.createElement("div");
+      flipCard.className = "flip-card";
+      contentorCartas.appendChild(flipCard);
+      let flipCardInner = document.createElement("div");
+      flipCardInner.className = "flip-card-inner";
+      flipCard.appendChild(flipCardInner);
+      let flipCardBack = document.createElement("div");
+      let flipCardFront = document.createElement("div");
+      flipCardFront.className = "flip-card-front";
+      flipCardBack.className = "flip-card-back";
+      flipCardInner.appendChild(flipCardBack);
+      flipCardInner.appendChild(flipCardFront);
+      let titleCard = document.createElement("h3");
+      titleCard.className = "title-card";
+      titleCard.innerText = personagens[index].Nome;
+      let pCard = document.createElement("p");
+      pCard.className = "txt-card";
+      pCard.setAttribute("style", "white-space: pre;");
+      pCard.textContent =`
+        Sexo :${personagens[index].Sexo}
+        Raça :${personagens[index].Raça}
+        Equipe :${personagens[index].Equipe}
+        Classe :${personagens[index].Classe}
+        Heroi :${personagens[index].Heroi}
+        Filmes :${personagens[index].Filmes}
+        HQ :${personagens[index].HQ}`;
+      flipCardBack.appendChild(titleCard);
+      flipCardBack.appendChild(pCard);
+      let imgCard = document.createElement("img");
+      imgCard.src = personagens[index].img;
+      flipCardFront.appendChild(imgCard);
+    }
   }
 }
-}
+
 criaCartas(personagens);
 
 function reset() {
   while (contentorCartas.firstChild) {
     contentorCartas.removeChild(contentorCartas.firstChild);
   }
+  modal.style.display = "none";
 }
-function resetado() {
+
+function resetS() {
   reset();
-  criaCartas(personagens);
+  criaCartas(Original);
+  window.resultado = personagens;
+  scoreUpdate.innerText = personagens.length;
+  escolhaPc();
+  escolhaJogador();
+}
+
+function escolhaPc() {
+  const cartas = document.querySelectorAll(".flip-card");
+  let x = Math.floor(Math.random() * (cartas.length - 1) + 1);
+  window.arrayTarget = personagens[x]
+  window.alvo = cartas[x];
+}
+
+
+function escolhaJogador() {
+  let cartas = document.querySelectorAll(".flip-card");
+  for (let i = 0; i < cartas.length; i++) {
+    cartas[i].addEventListener("click", comparador);
+  }
+}
+let lives = 3;
+function comparador() {
+  if(this.firstChild.firstChild.firstChild.innerText === window.alvo.firstChild.firstChild.firstChild.innerText){
+    modal.innerText = `Venceu com ${window.score} pontos`
+    modal.style.display = "block";}
+  lives = lives - 1;
+  if(lives === 2){
+    vida1.style.display= "none";
+  }
+  if(lives === 1){
+    vida1.style.display= "none";
+    vida2.style.display = "none";
+    
+  }
+  if(lives === 0){
+    modal.innerText = `Perdeu!`
+    modal.style.display = "block";
+    vida1.style.display= "none";
+    vida2.style.display = "none";
+    vida3.style.display = "none";
+  }
 }
 
 function pergunta() {
-  if (perguntaMenu.value === "sexo") {
-    Sexo();
-  }else if (perguntaMenu.value === "raça") {
-    Raça();
-}
-}
-
-function escolhaPc () {
-  const cartas = document.querySelectorAll(".flip-card");
-  let x = Math.floor(Math.random()*(cartas.length-1)+1);
-  window.alvo = cartas[x]
-}
-escolhaPc();
-
-function escolhaJogador() {
-  const cartas = document.querySelectorAll(".flip-card");
-  for(let i=0; i<cartas.length; i++){
-    cartas[i].addEventListener('click',comparador);
-  }
-}
-escolhaJogador();
-function comparador (){
-  if(this === window.alvo){
-    alert("Acertou")
-  }
-  else{
-    alert("Errou")
-  }
-}
-
-function Sexo() {
-  eleminar =[]
-  x = window.alvo.firstChild.firstChild.lastChild.innerText;
-  if(x.includes("Masculino")){
-    for(i in personagens){
-    if(personagens[i].Sexo === "Masculino"){
-      eleminar.push(personagens[i])
-    }
-  }
-}else{
-  for(i in personagens){
-    if(personagens[i].Sexo === "Feminino"){
-      eleminar.push(personagens[i])
-    }
-  }
-
-}
+  let arrayAlvo = Object.values(window.arrayTarget)
+  if(perguntaMenu.value === "sexo") { window.resultado = window.resultado.filter((personagem)=> personagem.Sexo === arrayAlvo[1])}
+  else if(perguntaMenu.value === "raça") {window.resultado = window.resultado.filter((personagem)=> personagem.Raça === arrayAlvo[2])}
+  else if(perguntaMenu.value === "equipe") {window.resultado= window.resultado.filter((personagem)=> personagem.Equipe === arrayAlvo[3])}
+  else if(perguntaMenu.value === "classe") { window.resultado = window.resultado.filter((personagem)=> personagem.Classe === arrayAlvo[4])}
+  else if(perguntaMenu.value === "heroi") { window.resultado = window.resultado.filter((personagem)=> personagem.Heroi === arrayAlvo[5])}
+  else if(perguntaMenu.value === "filmes") { window.resultado = window.resultado.filter((personagem)=> personagem.Filmes === arrayAlvo[6])}
+  else if(perguntaMenu.value === "hq") { window.resultado= window.resultado.filter((personagem)=> personagem.HQ === arrayAlvo[7])}
 reset();
-criaCartas(eleminar);
+window.score = resultado.length;
+scoreUpdate.innerText = window.score;
+criaCartas(window.resultado);
+escolhaJogador();
 }
-  // console.log(typeof(x))
-  // console.log(x)
-  // if(x.includes("Sexo")){
-  //   for (i of personagens){
-  //     if(i.Sexo !== "Masculino"){
-  //       console.log(i.Sexo,"AQUI")
-  //       eleminar.push(i)
-  //     } 
-  //     }
-  //   }
-  //   console.log(eleminar)
-  //   for (k of personagens){
-  //     for (j of eleminar){
-  //       if(k===j){
-          
-  //       }
-  //     }
-  //   }
-  //   console.log(personagens)
-  // }
 
-
+escolhaPc();
+escolhaJogador();

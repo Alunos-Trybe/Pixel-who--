@@ -35,23 +35,36 @@
   </header>
   <body>
     <main>
+      <div id="popup" class="modal"></div>
       <h1>Adivinha quem eu sou ?</h1>
       <!-- Container onde são adicionados as Personagens de forma dinamica -->
       <div class="container-personagens"></div>
       <section class="perguntas">
         <div class="container-perguntas">
           <select name="pergunta-menu" id="pergunta-menu">
-            <option value="sexo" id="p1">O seu personagem é masculino ?</option>
-            <option value="sexo" id="p2">O seu personagem é femenino ?</option>
-            <option value="raça" id="p3">O seu personagem é Humano ?</option>
-            <option value="raça" id="p4">O seu personagem é Asgardian ?</option>
-
+            <option value="sexo" id="p1">Qual o sexo da personagem ?</option>
+            <option value="raça" id="p2">Qual a raça da personagem ?</option>
+            <option value="equipe" id="p3">Qual a equipe da personagem ?</option>
+            <option value="classe" id="p4">Qual a classe da personagem ?</option>
+            <option value="heroi" id="p5">A sua personagem é heroi ?</option>
+            <option value="filme" id="p6">A sua personagem aparece em algum filme ?</option>
+            <option value="hq" id="p7">Qual a hq da personagem ?</option>
           </select>
           <br /><br />
           <input type="submit" value="Submit" id="submit-p"/>
           <button id="reset">Resest</button>
         </div>
       </section>
+      <div class="score">
+        <p class="score-value">13</p>
+      </div>
+      <div class="vidas">
+        <div class="container-vidas">
+          <img src="./img/vida.png" alt="vida" id="vida1">
+          <img src="./img/vida.png" alt="vida" id="vida2">
+          <img src="./img/vida.png" alt="vida" id="vida3">
+        </div>
+      </div>
     </main>
 
     <script src="./script.js"></script>
